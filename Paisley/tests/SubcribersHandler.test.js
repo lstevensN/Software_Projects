@@ -1,8 +1,8 @@
-const { mockPuppeteer } = require('./PuppeteerMock')
+const { mockPuppeteer } = require('./PuppeteerMock.js')
 const { readdirSync, mkdirSync, writeFileSync } = require('fs')
 const rimraf = require('rimraf')
-const SubscribersHandler = require('../classes/SubscribersHandler.js')
-const DataHandler = require('../classes/DataHandler')
+const SubscribersHandler = require('../../classes/SubscribersHandler.js')
+const DataHandler = require('../../classes/DataHandler.js')
 
 const dataDir = './tests/test-data'
 const subscribersFile = `${dataDir}/subscribers-schema.yaml`
