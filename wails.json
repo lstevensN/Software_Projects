@@ -1,0 +1,13 @@
+{
+  "$schema": "https://wails.io/schemas/config.v2.json",
+  "name": "paisleydesktopapp",
+  "outputfilename": "paisleydesktopapp",
+  "frontend:install": "npm install",
+  "frontend:build": "npm run build",
+  "frontend:dev:watcher": "npm run dev",
+  "frontend:dev:serverUrl": "auto",
+  "author": {
+    "name": "Hosa",
+    "email": "126433144+HiImHosa23@users.noreply.github.com"
+  }
+}
