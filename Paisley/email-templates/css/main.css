@@ -16,6 +16,9 @@ a {
 .main-table {
   width: 100%;
   max-width: 700px;
+  background-color: #fffafc;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(200, 200, 200, 0.2);
   margin: 20px auto;
 }
 
@@ -26,8 +29,10 @@ table {
 
 .header {
   color: #292929;
-  /* text-transform: uppercase; */
-  color: #79838d;
+  background: linear-gradient(135deg, #f7c5cc, #d4c4fb);
+  padding: 20px;
+  border-radius: 12px 12px 0 0;
+  color: #555;
 }
 
 .header__date {
@@ -38,18 +43,19 @@ table {
 .header__title {
   text-transform: uppercase;
   font-size: 21px;
+  color: #4f5364;
 }
 
 .header__date__day-of-the-month {
   font-size: 66px;
   line-height: 1;
   padding-left: 5px;
-  color: #4f5364;
+  color: #f9a4a7;
 }
 
 .header__date__day-of-the-week {
   padding-left: 5px;
-  color: #ff1818;
+  color: #a18cd1;
   font-size: 20px;
 }
 
@@ -57,13 +63,14 @@ table {
   padding-left: 5px;
   font-weight: 500;
   font-size: 20px;
+  color: #6ec6ca;
 }
 
 /* posts section  */
 
 .posts-section__header {
   margin-bottom: 10px;
-  color: #79838d;
+  color: #ffb6b9;
 }
 
 .posts-section__header__image {
@@ -76,7 +83,7 @@ table {
 .posts-section__header__link--sub {
   text-decoration: none;
   display: inline-block;
-  color: #ff5722;
+  color: #ffb6b9;
   text-transform: capitalize;
   /* line-height: 1 */
   font-weight: normal;
@@ -86,7 +93,7 @@ table {
 
 .posts-section__header__link--sub {
   font-size: 20px;
-  color: #ffc107;
+  color: #fdf6b2;
   margin-top: 25px;
 }
 
@@ -98,6 +105,10 @@ table {
   table-layout: fixed;
   display: inline-block;
   font-weight: 500;
+  background-color: #fef9f9;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0 2px 6px rgba(200, 200, 200, 0.2);
 }
 
 .post--block {
@@ -106,7 +117,6 @@ table {
 
 .post__image {
   overflow-y: hidden;
-  /* max-height: 300px; */
   margin-bottom: 10px;
 }
 .post__image > img {
@@ -130,11 +140,12 @@ table {
 }
 
 .post__meta-data--is-new {
-  background-color: #ff5722;
+  background-color: #c3fdb8;
   padding: 3px 8px;
-  color: #ffffff;
+  color: #4f5364;
   font-size: 9px;
   text-transform: uppercase;
+  border-radius: 6px;
 }
 
 .post__meta-data-img {
@@ -145,15 +156,15 @@ table {
 /* footer section */
 
 .footer-section {
-  background-color: hsl(0deg 0% 98%);
-  color: #ffffff;
+  background-color: #f7c5cc;
   color: #4f5364;
   margin: 10px 10px 0px 10px;
   padding: 30px 20px 20px 20px;
+  border-radius: 0 0 12px 12px;
 }
 
 .orange {
-  color: #ff5722;
+  color: #f9a4a7;
 }
 
 .footer-section__brand-name {
