@@ -13,18 +13,13 @@ a {
   padding: 20px;
 }
 
-.main-table {
+.main-container {
   width: 100%;
   max-width: 700px;
   background-color: #fffafc;
   border-radius: 12px;
   box-shadow: 0 4px 10px rgba(200, 200, 200, 0.2);
   margin: 20px auto;
-}
-
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
 }
 
 .header {
