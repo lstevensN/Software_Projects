@@ -6,7 +6,16 @@
     <title>paisleydesktopapp</title>
 </head>
 <body>
-<div id="app"></div>
+<div id="app">
+    <div class="input-box" id="input">
+        <input class="input" id="name" type="text" autocomplete="off" />
+        <button class="btn" onclick="send()">Send Digest</button>
+    </div>
+    <div id="debug">
+        
+    </div>
+</div>
+<script src="../Paisley/index.js" type="module"></script>
 <script src="./src/main.js" type="module"></script>
 </body>
 </html>
