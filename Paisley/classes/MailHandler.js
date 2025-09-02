@@ -2,13 +2,15 @@ const DataHandler = require('./DataHandler')
 const path = require('path')
 const { readdirSync, mkdirSync } = require('fs')
 const ejs = require('ejs')
-const mailer = require('nodemailer')
 const Juice = require('juice')
+
+const mailer = require('nodemailer')
+const { google } = require("googleapis")
+const OAuth2 = google.auth.OAuth2
+const { oauth_host, oauth_port, oauth_client_id, oauth_client_secret, oauth_refresh_token, oauth_username } = require('../local_settings')
 
 class MailHandler {
   constructor({
-    username,
-    password,
     host,
     port,
     fromEmail,
@@ -16,23 +18,19 @@ class MailHandler {
     viewsDir,
     quiet
   }) {
-    if (!username) throw new Error('username not provided')
-    if (!password) throw new Error('password not provided')
     if (!host) throw new Error('host not provided')
     if (!port) throw new Error('port not provided')
     if (!fromEmail) throw new Error('fromEmail not provided')
     if (!dataDir) throw new Error('dataDir not provided')
     if (!viewsDir) throw new Error('viewsDir not provided')
 
-    this.port = port
-    this.username = username
-    this.password = password
     this.host = host
+    this.port = port
     this.fromEmail = fromEmail
     this.dataDir = dataDir
     this.viewsDir = viewsDir
-    this.emailRegex = /(.+)-mail-[0-9]+\.yaml$/
     this.quiet = !quiet
+    this.emailRegex = /(.+)-mail-[0-9]+\.yaml$/
   }
 
   async start() {
@@ -93,24 +91,37 @@ class MailHandler {
   }
 
   sendMail(email, mail, name) {
+    const oauth2Client = new OAuth2(
+      oauth_client_id,
+      oauth_client_secret,
+      "https://developers.google.com/oauthplayground"
+    )
+
+    oauth2Client.setCredentials({ refresh_token: oauth_refresh_token })
+    const accessToken = oauth2Client.getAccessToken()
+
     // send the mail here.
     const transporter = mailer.createTransport(
       {
-        host: this.host,
-        port: this.port,
-        secure: false,
+        host: oauth_host,
+        port: oauth_port,
+        secure: true,
         auth: {
-          user: this.username,
-          pass: this.password
+          type: "OAuth2",
+          user: oauth_username,
+          clientId: oauth_client_id,
+          clientSecret: oauth_client_secret,
+          refreshToken: oauth_refresh_token,
+          accessToken: accessToken
         }
-      },
-      {
-        from: this.fromEmail
       }
     )
 
+    console.log(this.fromEmail)
+
     // initialize the options
     const option = {
+      from: `Paisley <${this.fromEmail}>`,
       to: email,
       html: mail,
       subject: name
@@ -239,16 +250,12 @@ class MailHandler {
     DataHandler.loadConfig()
     const host = process.env.HOST
     const port = process.env.PORT
-    const username = process.env.LOGIN
-    const password = process.env.PASSWORD
     const fromEmail = process.env.FROM_EMAIL
     const dataDir = process.env.MAIL_DATA_DIR
     const viewsDir = process.env.VIEWS_DIR
     return new MailHandler({
       host,
       port,
-      username,
-      password,
       fromEmail,
       viewsDir,
       dataDir
