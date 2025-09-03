@@ -117,8 +117,6 @@ class MailHandler {
       }
     )
 
-    console.log(this.fromEmail)
-
     // initialize the options
     const option = {
       from: `Paisley <${this.fromEmail}>`,
