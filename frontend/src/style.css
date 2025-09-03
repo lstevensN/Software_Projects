@@ -1,15 +1,15 @@
 html {
-    background-color: rgba(27, 38, 54, 1);
+    background: linear-gradient(135deg, #f7c5cc, #d4c4fb);
     text-align: center;
     color: white;
 }
 
 body {
     margin: 0;
-    color: white;
+    color: #f9a4a7;
     font-family: "Nunito", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
-    "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+        "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+        sans-serif;
 }
 
 @font-face {
@@ -17,10 +17,44 @@ body {
     font-style: normal;
     font-weight: 400;
     src: local(""),
-    url("assets/fonts/nunito-v16-latin-regular.woff2") format("woff2");
+        url("assets/fonts/nunito-v16-latin-regular.woff2") format("woff2");
 }
 
 #app {
     height: 100vh;
     text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#digest-container {
+    background: rgba(255, 255, 255, 0.589);
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    width: 320px;
+    height: 150px;
+}
+
+input{
+    padding: 10px 15px;
+    border: 2px solid #f5b3bc;
+    border-radius: 10px;
+    outline: none;
+}
+
+button {
+    background-color: #f5b3bc;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    height: 39.39px;
+}
+
+
+button:hover {
+    background-color: #eea4ae;
 }
